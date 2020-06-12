@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Document</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <title>Document</title>
 </head>
+
 <body>
+  <p class="bg-dark text-monospace text-center" style="font-size:70px;color:white;"> Weather Dashboard</p>
+  <div class="card float-left" style="width: 30rem;">
+    <input id="searchCity" class="form-control form-control-lg" type="text" placeholder="city name ">
+    <br>
+    <button id="searchBtn" type="button" class="btn btn-primary" style="width: 10rem;">Search</button>
+    <br>
+
+    <ul class="list-group list-group-flush">
+      <li id="city1" class="list-group-item">city1</li>
+      <li class="list-group-item">city2</li>
+      <li class="list-group-item">city3</li>
+    </ul>
+  </div>
+
+  <div class="card float-right" style="width:70%;height:283px">
+    <div class="card-body float-right">
+
+      <div class="city"></div>
+      <div class="temperature"></div>
+      <div class="humidity"></div>
+      <div class="windSpeed"></div>
+      <div class="uvIndex"></div>
+     
+    </div>
+  </div>
 
 
-
-
-
-
-
-
-
-    
-<script src="assets/script.js"></script>   
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="assets/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script type="text/javascript"></script>
 </body>
+
 </html>
