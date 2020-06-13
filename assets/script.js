@@ -1,4 +1,5 @@
 $("#searchBtn").on("click", function () {
+
   var a = $("#searchCity").val()
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + a + "&appid=6b3afd9bd72f4073f1bc156249372fa6"
   $("#city1").text(a)
