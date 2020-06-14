@@ -1,4 +1,6 @@
-#openweathermap-widget-15 {
-    border-width: 5px;
-    background-color: brown;
+.button {
+    border: none;
+    background-color: rgb(239, 29, 17);  
+    color: white;
+    font-size: 24px;
 }

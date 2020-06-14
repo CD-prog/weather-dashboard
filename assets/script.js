@@ -3,9 +3,11 @@ $("#mainCard").hide()
 $("#searchBtn").on("click", function () {
 
   $("#mainCard").show()
-  var a = $("#searchCity").val()
-  $("#city1").text(a)
+  var a = $("#searchCity").val().toUpperCase()
+  $("#list").append('<button class="button">'+a+'</button><br>')
+  // $("#city1").text(a)
   localStorage.setItem("#searchCity",a)
+  $("#searchCity").val("")
 
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + a + "&appid=6b3afd9bd72f4073f1bc156249372fa6"
 
@@ -27,6 +29,7 @@ $("#searchBtn").on("click", function () {
 
     var lat = response.coord.lat;
     var lon = response.coord.lon;
+
     var uvURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&appid=6b3afd9bd72f4073f1bc156249372fa6"
 
     $.ajax({
@@ -84,4 +87,5 @@ $("#searchBtn").on("click", function () {
     })
   })
 });
+
 
