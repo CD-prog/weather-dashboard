@@ -1,6 +1,7 @@
 .button {
     border: none;
-    background-color: rgb(239, 29, 17);  
-    color: white;
+    padding: none;
+    background-color: rgb(245, 3, 3);  
+    color: rgb(253, 253, 253);
     font-size: 24px;
 }
