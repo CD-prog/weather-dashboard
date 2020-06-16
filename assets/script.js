@@ -25,7 +25,7 @@ function handleSetItem(city) {
   localStorage.setItem('cities', newCitiesStr)
 }
 
-function getCity() {
+function addCityBtn() {
   if ($("#searchCity").val() !== "") {
     var city = $("#searchCity").val().trim().toUpperCase();
     handleSetItem(city);
@@ -38,27 +38,30 @@ function getCity() {
   }
 }
 
-function populateButtons() {
-  var city = $("#searchCity").val().trim().toUpperCase();
-
-  //Clear all buttons
-  //Read from local storage
-  //Create again
-  //For loop over buttons 
-  //for each button create
-}
-
-
 $(document).on('click', '.button', function () {
   var city = $(this).text()
   getWeather(city)
 })
 
+
+// function addButtons() {
+//   var cities = localStorage.getItem('cities')
+//   console.log(cities)
+//   // var city = $("#searchCity").val().trim().toUpperCase();
+
+//   //Clear all buttons
+//   //Read from local storage
+//   //Create again
+//   //For loop over buttons 
+//   //for each button create
+// }
+
+
+
 function getWeather(city) {
   $("#mainCard").show()
   $("#searchCity").val("")
-  // populateButtons()
-
+  
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=6b3afd9bd72f4073f1bc156249372fa6"
 
   $.ajax({
@@ -138,7 +141,7 @@ function getWeather(city) {
 }
 
 function handleGetWeather() {
-  var city = getCity();
+  var city = addCityBtn();
   if (city.length !== 0) {
     getWeather(city);
   } else { alert("Enter city name") }
