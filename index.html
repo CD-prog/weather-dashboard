@@ -13,18 +13,17 @@
 <body>
   <p class="bg-dark text-monospace text-center" style="font-size:70px;color:white;"> Weather Dashboard</p>
   <br>
-  <div class="card float-left" style="width:35rem;border:none">
+<!-- section containing search bar and cities list -->
+  <section class="card float-left" style="width:35rem;border:none">
     <input id="searchCity" class="form-control form-control-lg;" type="text" placeholder="city name ">
     <br>
     <button id="searchBtn" type="button" class="btn btn-primary " style="width:5rem;margin-left:20px">Search</button>
     
     <br>
-    <ul id="list" class="list-group list-group-flush">
-
-    </ul>
-  </div>
-
-  <div id="mainCard"class="card float-right" style="height:350px;border:none">
+    <ul id="list" class="list-group list-group-flush"></ul>
+  </section>
+<!-- main card containing weather data -->
+  <main id="mainCard"class="card float-right" style="height:350px;border:none">
     <div class="card-body float-right">
       <div class="city" style="display:flex"></div>
       <img id="image">
@@ -94,7 +93,7 @@
 
     </div>
 
-    </div>
+    </main>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

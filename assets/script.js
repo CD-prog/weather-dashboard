@@ -1,34 +1,22 @@
-$("#mainCard").hide()
+$("#mainCard").hide();
 
-function handleSetItem(city) {
-  var citiesStr = localStorage.getItem('cities') || ''//getItem when doesn't exist returns null
-  //Convert string to array
-  var cities = citiesStr.split(',');
-  var cityIndex = cities.indexOf(city)
-  var cityNotInArray = cityIndex === -1
-  //TODO: this doesnt exist
-  if (cityNotInArray) {
-    //Add city to array
-    cities.unshift(city)
-  }
-  else {
-    //we need to extract the item and move to front unless already first item
-    if (cityIndex !== 0) {
-      var current = cities.splice(cityIndex, 1).pop();
-      cities.unshift(current);
 
-    }
-  }
-  //convert back to string
-  var newCitiesStr = cities.join(',')
-  //set to local storage
-  localStorage.setItem('cities', newCitiesStr)
+
+function getLocalStorage(){
+var lsCities = JSON.parse(localStorage.getItem('cities'))
+for(var i=0; i<lsCities.length ; i++){
+  $("#list").append('<button class="button">' + lsCities[i] + '</button><br>')
 }
-
+}
+//creates buttons if they have value
+var citiesArr=[]
 function addCityBtn() {
   if ($("#searchCity").val() !== "") {
     var city = $("#searchCity").val().trim().toUpperCase();
-    handleSetItem(city);
+
+    citiesArr.push(city)
+    localStorage.setItem('cities',JSON.stringify(citiesArr));
+   
     $("#list").append('<button class="button">' + city + '</button><br>');
     return city;
   }
@@ -37,27 +25,12 @@ function addCityBtn() {
     return city;
   }
 }
-
+//gets weather when button is clicked
 $(document).on('click', '.button', function () {
   var city = $(this).text()
   getWeather(city)
 })
-
-
-// function addButtons() {
-//   var cities = localStorage.getItem('cities')
-//   console.log(cities)
-//   // var city = $("#searchCity").val().trim().toUpperCase();
-
-//   //Clear all buttons
-//   //Read from local storage
-//   //Create again
-//   //For loop over buttons 
-//   //for each button create
-// }
-
-
-
+//gathers all weather data
 function getWeather(city) {
   $("#mainCard").show()
   $("#searchCity").val("")
@@ -144,11 +117,11 @@ function handleGetWeather() {
   var city = addCityBtn();
   if (city.length !== 0) {
     getWeather(city);
-  } else { alert("Enter city name") }
-
+  } else {alert("Enter city name")}
 }
 
 $("#searchBtn").on("click", handleGetWeather);
+getLocalStorage();
 
 
 
