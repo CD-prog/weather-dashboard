@@ -105,7 +105,19 @@ function getWeather(city) {
       $("#icon4").attr("src", icon4url)
       $("#icon5").attr("src", icon5url)
 
-      $(".uvIndex").html("<h2>UV index " + responseUV.current.uvi + "</h2>");
+      var uvIndex = responseUV.current.uvi
+      $(".uvIndex").html("<h2>UV index " + uvIndex + "</h2>");
+      
+      if(uvIndex<5){
+        $(".uvIndex").css({"background-color":"green"})
+      }
+      if(uvIndex>=5 && uvIndex<=8){
+        $(".uvIndex").css({"background-color":"orange"})
+      }
+      if(uvIndex>8){
+        $(".uvIndex").css({"background-color":"red"})
+      }
+
       var iconCode = responseUV.current.weather[0].icon
       varIconURL = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png"
       $("#image").attr("src", varIconURL)
